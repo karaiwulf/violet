@@ -1,5 +1,6 @@
 {
 	"base_url": "https://api.openai.com",
 	"key": "sk-...",
-	"model": "gpt-4o"
+	"model": "gpt-4o",
+	"timeout": 300
 }

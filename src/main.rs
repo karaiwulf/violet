@@ -10,6 +10,7 @@ struct Config {
     base_url: String,
     key: String,
     model: String,
+    timeout: u64,
 }
 
 async fn get_horoscope(sign: &str) -> String {
@@ -26,7 +27,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = LlmClient::openai_with_config(
         &config.key,
         Some(&config.base_url),
-        Some(300),
+        Some(config.timeout),
         None,
     )?;
     eprintln!("Config Setup");
