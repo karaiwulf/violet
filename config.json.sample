@@ -2,5 +2,6 @@
 	"base_url": "https://api.openai.com",
 	"key": "sk-...",
 	"model": "gpt-4o",
+	"system_prompt": "You are a helpful agent!",
 	"timeout": 300
 }

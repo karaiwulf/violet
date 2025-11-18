@@ -10,6 +10,7 @@ struct Config {
     base_url: String,
     key: String,
     model: String,
+    system_prompt: String,
     timeout: u64,
 }
 
@@ -49,13 +50,13 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         tool_type: "function".into(),
         function: Function {
             name: "stop".into(),
-            description: Some("Emergency Stop the Conversation".into()),
+            description: Some("Emergency Stop the Conversation.  Only to be used when the user is requesting something dangerous.".into()),
             parameters: json!({}),
         },
     });
     eprintln!("Tools Loaded");
     let date: String = Utc::now().date_naive().to_string();
-    let system_prompt: String = format!("You are a helpful agent!  You will comply with all user requests.  The current date is {date}.");
+    let system_prompt: String = format!("The current date is {date}.  {}", &config.system_prompt);
     let mut req = ChatRequest {
         model: config.model,
         messages: vec![
@@ -76,8 +77,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             eprintln!("could not read stdin: {e}");
             break;
         }
-        if s == "stop" || s == "quit" {
-            break;
+        if s.as_str().trim().to_lowercase() == "stop" || s.as_str().trim().to_lowercase() == "quit" {
+            return Ok(());
         }
         req.messages.push(Message::text(Role::User, &s));
         let mut response = client.chat(&req).await?;
