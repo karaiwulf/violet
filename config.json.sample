@@ -1,7 +1,10 @@
 {
-	"base_url": "https://api.openai.com",
+	"base_url": "https://api.openai.com/v1",
 	"key": "sk-...",
 	"model": "gpt-4o",
+	"audio_model": "tts-1",
+	"audio_voice": "alloy",
 	"system_prompt": "You are a helpful agent!",
-	"timeout": 300
+	"timeout": 300,
+	"max_tokens": 200
 }
