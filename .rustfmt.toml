@@ -1,0 +1,12 @@
+max_width = 79
+hard_tabs = false
+tab_spaces = 2
+edition = "2024"
+match_block_trailing_comma = true
+merge_derives = true
+reorder_imports = true
+reorder_modules = true
+use_field_init_shorthand = true
+use_try_shorthand = true
+# I hate NT users and they hate me.
+newline_style = "Unix"
