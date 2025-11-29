@@ -7,8 +7,10 @@ publish = ["crates-io"]
 [dependencies]
 base64 = "0.22.1"
 chrono = "0.4.42"
+confy = "2.0.0"
 reqwest = "0.12.24"
 rig-core = { version = "0.24.0", features = ["all", "audio"] }
+rodio = "0.21.1"
 serde = { version = "1.0.228", features = ["derive"] }
 serde_json = "1.0.145"
 tokio = { version = "1.48.0", features = ["full"] }
