@@ -8,6 +8,8 @@ publish = ["crates-io"]
 base64 = "0.22.1"
 chrono = "0.4.42"
 confy = "2.0.0"
+daemonize-me = "2.0.2"
+image = "0.25.9"
 reqwest = "0.12.24"
 rig-core = { version = "0.24.0", features = ["all", "audio"] }
 rodio = "0.21.1"
